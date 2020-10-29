@@ -1,0 +1,3 @@
+bam_filename	sample	platform	platform_unit	library	readgroup	read_length_r1	read_length_r2	#_mapped_bases	#_mapped_bases_r1	#_mapped_bases_r2	#_divergent_bases	#_divergent_bases_r1	#_divergent_bases_r2	#_total_reads	#_total_reads_r1	#_total_reads_r2	#_mapped_reads	#_mapped_reads_r1	#_mapped_reads_r2	#_mapped_reads_properly_paired	#_gc_bases_r1	#_gc_bases_r2	mean_insert_size	insert_size_sd	median_insert_size	#_duplicate_reads
+tumor.bam	tumor	.	.	.	1	125	125	275173	137446	137727	3900	1730	2170	2252	1126	1126	2250	1126	1124	1123	50657	50187	243.336	87.943	227.000	1182
+tumor.bam	tumor	.	.	.	2	125	125	290456	145132	145324	3970	1824	2146	2370	1185	1185	2370	1185	1185	1185	52763	53084	249.695	90.782	237.000	1220

@@ -1,0 +1,66 @@
+# job submission
+exec = function(cmd) {
+    system(command = cmd, intern = T)
+}
+
+run_pileup = function(nid, nbam, outdir = '/work/isabl/home/gaot/ch_cnv_pileup', q = 15, Q = 20, r = 20) {
+    
+    outfile = glue('{outdir}/{nid}_pileup.tsv.gz')
+    logfile = glue('{outdir}/{nid}.logs')
+
+    glue(
+        "bsub \\
+        -M 10 \\
+        -n 1 \\
+        -We 59 \\
+        -oo {logfile} \\
+       'rm -f {outfile} && singularity exec --workdir $TMP_DIR/gaot_docker-facets_v0.1.1_`uuidgen` \\
+            --bind /ifs:/ifs --bind /juno:/juno \\
+            --bind /juno/work:/work \\
+            --bind /juno/res:/res \\
+            /juno/work/isabl/local/docker-facets/v0.1.1/docker-facets-v0.1.1.simg \\
+            snp-pileup \\
+                -g -q{q} -Q{Q} -P100 -A \\
+                -r{r} \\
+                -v /ifs/work/leukgen/ref/homo_sapiens/GRCh37d5/dbsnp/138/dbsnp_138.b37.vcf.gz \\
+                {outfile} \\
+                {nbam}'")
+}
+
+run_facets = function(prefix, 
+                      pu, 
+                      sex, 
+                      panel, 
+                      db,
+                      cval = 30,
+                      bin = 750,
+                      memory = 4, 
+                      gamma = 0.25,
+                      blacklist = TRUE, 
+                      bestnormal = TRUE,
+                      snpdistance = TRUE,
+                      correctbaf = TRUE,
+                      outdir = '/work/isabl/home/gaot/ch_cnv/results') {
+        
+    glue(
+        "bsub \\
+        -n 1 \\
+        -M {memory} \\
+        -We 59 \\
+        -oo {outdir}/{sid}.logs \\
+       '/work/isabl/home/gaot/R/R-3.6.1/bin/Rscript /work/isabl/home/gaot/facets-ch/facets-ch.R \\
+            --db {db} \\
+            --pu {pu} \\
+            --sex {sex} \\
+            --outdir {outdir} \\
+            --prefix {prefix} \\
+            --panel {panel} \\
+            --cval {cval} \\
+            --bin {bin} \\
+            --blacklist {blacklist} \\
+            --snpdistance {snpdistance} \\
+            --correctbaf {correctbaf} \\
+            --gamma {gamma} \\
+            --bestnormal {bestnormal}'")
+    
+}

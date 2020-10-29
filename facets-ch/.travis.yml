@@ -1,0 +1,5 @@
+language: shell
+os: linux
+dist: xenial
+services: docker
+script: bash test-container.sh

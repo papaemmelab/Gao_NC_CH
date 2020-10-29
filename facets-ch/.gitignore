@@ -1,0 +1,8 @@
+# Tests
+tests/output
+
+# R environment
+renv
+
+# System files
+.DS_Store

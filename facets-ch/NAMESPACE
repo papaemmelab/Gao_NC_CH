@@ -1,0 +1,7 @@
+useDynLib(facetsCH)
+import(glue,stats,graphics,dplyr,data.table,argparse,stringr,patchwork,ggplot2)
+importFrom("utils", "read.csv")
+importFrom("glue", "glue")
+importFrom("grDevices", "colorRampPalette", "rainbow")
+importFrom("pctGCdata", "getGCpct")
+export("readSnpMatrix", "preProcSample", "procSample", "emcncf", "emcncf2", "plotSample","logRlogORspider", "get_logr", "call_aberrant", "facets_plot", "variant_type", "get_seg")
