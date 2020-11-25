@@ -1,6 +1,7 @@
 # Gao_NC_CH
 Code and Data for Gao et al., Nature Communications
-
+# Directory structure
+```
 └─ notebooks/:
 |   └─ ch_cnv_figures.html: Analysis code and scripts to reproduce figures
 |   └─ plot_forest.R: helper script to create forest plots
@@ -11,4 +12,4 @@ Code and Data for Gao et al., Nature Communications
 |   └─ R/: Source code for the FACETS-CH algorithm
 |   └─ tests/:
 |   |   └─ data/: example input data and commandline script for facets-ch
-
+```
