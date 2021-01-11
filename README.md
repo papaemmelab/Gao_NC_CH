@@ -1,5 +1,6 @@
-# Gao_NC_CH
-Code and Data for Gao et al., Nature Communications
+# Interplay between chromosomal alterations and gene mutations in clonal hematopoiesis
+Code and Data for Gao et al., 2021 Nature Communications.
+
 # Directory structure
 ```
 └─ notebooks/:
@@ -13,3 +14,5 @@ Code and Data for Gao et al., Nature Communications
 |   └─ tests/:
 |   |   └─ data/: example input data and commandline script for facets-ch
 ```
+# Analysis notebooks
+An interative jupyter notebook is provided to reproduce the analyses in the paper. First install [Jupyter](https://jupyter.org/) and then launch the notebook `ch_cnv_figures.ipynb`.
