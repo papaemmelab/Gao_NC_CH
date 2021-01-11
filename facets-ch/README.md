@@ -1,12 +1,14 @@
 # FACETS-CH
 
-Unmatched facets for Clonal Hematopoiesis (CH) calling, based on [facets].
+Clonal hematopoiesis (CH) calling in targeted sequencing data.
 
-Facets, it's an Algorithm to implement Fraction and Allele specific Copy number Estimate from Tumor/normal Sequencing.
+In the preprocessing step, FACETS-CH leverages a large panel of normal (PON) to reduce noise. It then iteratively computes sample-specific noise profiles and uses a bivariate Wald test to identify aberrant segments.
+
+Some of the preprocessing and segmentation steps are based on [FACETS] (Shen et al, NAR 2016). 
 
 ## Install
 
-Make sure you install first [facets], and its dependencies. You can install the current version (along with the vignette) using the command:
+Make sure you install first [FACETS], and its dependencies. You can install the current version (along with the vignette) using the command:
 
 ```R
 devtools::install_github("mskcc/facets", build_vignettes = TRUE)
@@ -40,7 +42,7 @@ Run containerized tests with:
 
 ## Usage
 
-Factes CH has 2 steps: Pileup step and facets step.
+FACETS-CH runs in 2 steps: pileup step and variant calling step.
 
 ### 1. Pileup step
 
@@ -70,7 +72,7 @@ run_pileup = function(nid, nbam, outdir = '/work/isabl/home/gaot/ch_cnv_pileup',
 }
 ```
 
-### 2. Run facets CH
+### 2. Run FACETS-CH
 
 ```R
 run_facets = function(prefix,
@@ -114,4 +116,4 @@ run_facets = function(prefix,
 
 <!-- References -->
 
-[facets]: https://github.com/mskcc/facets
+[FACETS]: https://github.com/mskcc/facets
