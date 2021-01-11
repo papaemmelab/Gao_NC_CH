@@ -1,5 +1,6 @@
-# Gao_NC_CH
-Code and Data for Gao et al., Nature Communications
+# Interplay between chromosomal alterations and gene mutations in clonal hematopoiesis
+Code and Data for Gao et al., 2021 Nature Communications.
+
 # Directory structure
 ```
 └─ notebooks/:
