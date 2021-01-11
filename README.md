@@ -1,6 +1,8 @@
 # Interplay between chromosomal alterations and gene mutations in clonal hematopoiesis
 Code and Data for Gao et al., 2021 Nature Communications.
 
+![GitHub Logo](/images/fig3b.png)
+
 # Directory structure
 ```
 └─ notebooks/:
