@@ -14,7 +14,7 @@ Code and Data for Gao et al. Nature Communications 2021.
 └─ facets-ch/:
 |   └─ R/: Source code for the FACETS-CH algorithm
 |   └─ tests/:
-|   |   └─ data/: example input data and commandline script for facets-ch
+|   |   └─ data/: example input data and commandline script for FACETS-CH
 ```
 # Analysis notebooks
 An interactive jupyter notebook is provided to reproduce the analyses in the paper. First install [Jupyter](https://jupyter.org/) and then launch the notebook `ch_cnv_figures.ipynb`.
