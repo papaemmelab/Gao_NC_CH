@@ -4,7 +4,7 @@ Clonal hematopoiesis (CH) calling in targeted sequencing data.
 
 In the preprocessing step, FACETS-CH leverages a large panel of normal (PON) to reduce noise. It then iteratively computes sample-specific noise profiles and uses a bivariate Wald test to identify aberrant segments.
 
-Some of the preprocessing and segmentation steps are based on [FACETS] (Shen et al, NAR 2016). FACETS-CH is designed for detecting subclonal chromosomal alterations from normal tissue sequencing, where most of the genome should be in diploid state. It is not fit for analyzing tumor genomes that have complex karyotypes.
+Some of the preprocessing and segmentation steps are based on [FACETS] (Shen et al, NAR 2016). FACETS-CH is designed for detecting subclonal chromosomal alterations from normal tissue sequencing, where most of the genome should be in diploid state. It is not fit for analyzing tumor genomes that have complex karyotypes, for which we recommend using the original FACETS.
 
 ## Install
 
