@@ -17,7 +17,7 @@ Code and Data for Gao et al. Nature Communications 2021.
 |   |   └─ data/: example input data and commandline script for FACETS-CH
 ```
 # Analysis notebooks
-An interactive jupyter notebook is provided to reproduce the analyses in the paper. First install [Jupyter](https://jupyter.org/) and then launch the notebook `ch_cnv_figures.ipynb`.
+An interactive jupyter notebook is provided to reproduce the analyses in the paper. First install [Jupyter](https://jupyter.org/) and then launch the notebook [ch_cnv_figures.ipynb](https://github.com/papaemmelab/Gao_NC_CH/blob/main/notebooks/ch_cnv_figures.ipynb).
 
 # FACETS-CH Algorithm
-Code to implement the FACETS-CH algorithm is provided here under the `facets-ch` subfolder.
+Code to implement the FACETS-CH algorithm is provided here under the [facets-ch](https://github.com/papaemmelab/facets-ch) subfolder.
