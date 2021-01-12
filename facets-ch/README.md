@@ -42,8 +42,13 @@ Run containerized tests with:
 
 ## Usage
 
-The following steps are required to run analysis using FACETS-CH.
-1. Build a panel of normal (PON) composed of unmatched normal samples sequenced using the same panel. We recommend >100 samples with both genders with optimal performance.
+The following steps are required to run analysis using FACETS-CH. 
+
+1. Build a database (`-db`). Gather a panel of normal (PON) composed of unmatched normal samples sequenced using the same panel. We recommend >100 samples with both genders with optimal performance. Run `snp-pileup` on all samples and store results in `db/pon_pileups`. Then generate the following files: 
+    - `snp_blacklist.tsv`: A list of SNPs that will be excluded from copy number profile
+    - `het_whitelist.tsv`: A list of heterozygous SNPs that will be included in the profile
+    - `het_bias.tsv`: The allelic mapping bias for each heterozygous SNPs on the whitelist
+The above files should be in the `db` main directory.
 
 2. Run pileup using `snp-pileup` from the FACETS package, using a DBSNP VCF.
 Example:
@@ -75,6 +80,7 @@ Rscript facets-ch.R \\
 
 }
 ```
+Currently, FACETS-CH only runs on MSK-IMPACT data. Please contact the authors if you would like to apply FACETS-CH on your panel.
 
 <!-- References -->
 
