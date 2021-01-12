@@ -1,6 +1,6 @@
 # FACETS-CH
 
-Algorithm to detect mosaic chromosomal alterations (mCAs) from targeted sequencing data. FACETS-CH leverages a large, unmatched panel of normal (PON) to reduce noise. It then iteratively computes sample-specific noise profiles and uses a bivariate Wald test to identify aberrant segments. Some of the preprocessing and segmentation steps are based on [FACETS] (Shen et al, NAR 2016). 
+FACETS-CH is an algorithm to detect mosaic chromosomal alterations (mCAs) from targeted sequencing data. It iteratively computes sample-specific noise profiles and identifies aberrant segments using a bivariate Wald test. Some of the preprocessing and segmentation steps are based on [FACETS] (Shen et al, NAR 2016). 
 
 FACETS-CH is designed for detecting subclonal chromosomal alterations from normal tissue sequencing, where most of the genome should be in diploid state. It is not fit for analyzing tumor genomes that have complex karyotypes, for which we recommend using the original FACETS.
 
@@ -42,74 +42,36 @@ Run containerized tests with:
 
 ## Usage
 
-FACETS-CH runs in 2 steps: pileup step and variant calling step.
+The following steps are required to run analysis using FACETS-CH.
+1. Build a panel of normal (PON) composed of unmatched normal samples sequenced using the same panel. We recommend >100 samples with both genders with optimal performance.
 
-### 1. Pileup step
-
-```R
-run_pileup = function(nid, nbam, outdir = '/work/isabl/home/gaot/ch_cnv_pileup', q = 15, Q = 20, r = 20) {
-
-    outfile = glue('{outdir}/{nid}_pileup.tsv.gz')
-    logfile = glue('{outdir}/{nid}.logs')
-
-    glue(
-        "bsub \\
-        -M 10 \\
-        -n 1 \\
-        -We 59 \\
-        -oo {logfile} \\
-       'rm -f {outfile} && singularity exec --workdir $TMP_DIR/gaot_docker-facets_v0.1.1_`uuidgen` \\
-            --bind /ifs:/ifs --bind /juno:/juno \\
-            --bind /juno/work:/work \\
-            --bind /juno/res:/res \\
-            /juno/work/isabl/local/docker-facets/v0.1.1/docker-facets-v0.1.1.simg \\
-            snp-pileup \\
-                -g -q{q} -Q{Q} -P100 -A \\
-                -r{r} \\
-                -v /work/isabl/public/facets-ch/pon/dbsnp_138.b37.vcf.gz \\
-                {outfile} \\
-                {nbam}'")
-}
+2. Run pileup using `snp-pileup` from the FACETS package, using a DBSNP VCF.
+Example:
 ```
-
-### 2. Run FACETS-CH
-
-```R
-run_facets = function(prefix,
-                      pu,
-                      sex,
-                      panel,
-                      db,
-                      cval = 30,
-                      bin = 750,
-                      memory = 4,
-                      gamma = 0.25,
-                      blacklist = TRUE,
-                      bestnormal = TRUE,
-                      snpdistance = TRUE,
-                      correctbaf = TRUE,
-                      outdir = '/work/isabl/home/gaot/ch_cnv/results') {
-
-    glue(
-        "bsub \\
-        -n 1 \\
-        -M {memory} \\
-        -We 59 \\
-        -oo {outdir}/{sid}.logs \\
-       '/work/isabl/home/gaot/R/R-3.6.1/bin/Rscript /work/isabl/home/gaot/facets-ch/facets-ch.R \\
-            --db {db} \\
-            --pu {pu} \\
-            --sex {sex} \\
-            --outdir {outdir} \\
-            --prefix {prefix} \\
-            --panel {panel} \\
-            --cval {cval} \\
-            --bin {bin} \\
-            --blacklist {blacklist} \\
-            --snpdistance {snpdistance} \\
-            --correctbaf {correctbaf} \\
-            --gamma {gamma} \\
-            --bestnormal {bestnormal}'")
+snp-pileup \\
+    -g -q15 -Q20 -P100 -A \\
+    -r20 \\
+    -v dbsnp_138.b37.vcf.gz \\
+    {outfile} \\
+    {nbam}'
+```
+3. Run the FACETS-CH wrapper script `facets-ch.R`.
+Example:
+```
+Rscript facets-ch.R \\
+    --db {db} \\
+    --pu {pu} \\
+    --sex {sex} \\
+    --outdir {outdir} \\
+    --prefix {prefix} \\
+    --panel {panel} \\
+    --cval {cval} \\
+    --bin {bin} \\
+    --blacklist {blacklist} \\
+    --snpdistance {snpdistance} \\
+    --correctbaf {correctbaf} \\
+    --gamma {gamma} \\
+    --bestnormal {bestnormal}'")
 
 }
 ```
