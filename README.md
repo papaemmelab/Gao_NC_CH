@@ -20,4 +20,4 @@ Code and Data for Gao et al. Nature Communications 2021.
 An interactive jupyter notebook is provided to reproduce the analyses in the paper. First install [Jupyter](https://jupyter.org/) and then launch the notebook `ch_cnv_figures.ipynb`.
 
 # FACETS-CH Algorithm
-Code to implement the FACETS-CH algorithm is provided here under the `/facets-ch` subfolder.
+Code to implement the FACETS-CH algorithm is provided here under the `facets-ch` subfolder.
