@@ -1,13 +1,11 @@
-Package: facetsCH
+Package: FACETS-CH
 Type: Package
-Title: Cellular Fraction and Copy Numbers from Tumor Sequencing
-Version: 0.6.1
-Date: 2019-03-27
-Author: Venkatraman E. Seshan and Ronglai Shen
-Maintainer: Venkatraman E. Seshan <seshanv@mskcc.org>
-Description: Algorithm to implement Fraction and Allelic Copy number
-             Estimate from Tumor/normal Sequencing.
+Title: Mosaic chromsomal alteration calling from targeted sequencing data
+Version: 0.0.1
+Date: 2021-01-12
+Author: Teng Gao, Juan E. Arango-Ossa
+Maintainer: Teng Gao <gaot@g.harvard.edu>
+Description: Algorithm to implement FACETS-CH. Based on FACETS (Shen et al, NAR 2016)
 License: GPL (>= 2)
-Depends: R (>= 3.0.0), pctGCdata (>= 0.3.0), dplyr, data.table, ggplot2, argparse, stringr, patchwork, glue, R.utils
-Remotes: veseshan/pctGCdata
+Depends: R (>= 3.6.0), pctGCdata (>= 0.3.0), dplyr, data.table, ggplot2, argparse, stringr, patchwork, glue, R.utils
 NeedsCompilation: yes
