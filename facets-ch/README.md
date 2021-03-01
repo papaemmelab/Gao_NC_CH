@@ -44,7 +44,7 @@ Run containerized tests with:
 
 The following steps are required to run analysis using FACETS-CH. 
 
-1. Build a database (`-db`). Gather a panel of normal (PON) composed of unmatched normal samples sequenced using the same panel. We recommend >100 samples with both genders with optimal performance. Run `snp-pileup` on all samples and store results in `db/pon_pileups`. Then generate the following files (by following this [notebook guide]) and store them in the `db` directory: 
+1. Build a database (`-db`). Gather a panel of normal (PON) composed of unmatched normal samples sequenced using the same panel. We recommend >100 samples with both genders with optimal performance. Run `snp-pileup` (included in the FACETS package, see example below) on all PON samples and store results in `db/pon_pileups`. Then generate the following files (by following this [notebook guide]) and store them in the `db` directory: 
     - `snp_blacklist.tsv`: A list of SNPs that will be excluded from copy number profile
     - `het_whitelist.tsv`: A list of heterozygous SNPs that will be included in the profile
     - `het_bias.tsv`: The allelic mapping bias for each heterozygous SNPs on the whitelist
