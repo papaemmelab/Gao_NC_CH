@@ -26,7 +26,7 @@ If you get an error message about pctGCdata use
 devtools::install_github("veseshan/pctGCdata")
 ```
 
-Finally, install this package inside an R session:
+Finally, install the facetsCH package inside an R session:
 
 ```R
 devtools::install_local(build_vignettes = FALSE, upgrade="never")
