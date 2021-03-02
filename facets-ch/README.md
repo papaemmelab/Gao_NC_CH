@@ -79,7 +79,6 @@ Rscript facets-ch.R \\
 
 }
 ```
-Currently, FACETS-CH only runs on MSK-IMPACT data. Please contact the authors if you would like to apply FACETS-CH on your panel.
 
 <!-- References -->
 
