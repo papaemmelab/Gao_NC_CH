@@ -18,6 +18,9 @@ Code and Data for [Gao et al. Nature Communications 2021](https://www.nature.com
 ```
 # Analysis notebooks
 An interactive jupyter notebook is provided to reproduce the analyses in the paper. First install [Jupyter](https://jupyter.org/) and then launch the notebook [ch_cnv_figures.ipynb](https://github.com/papaemmelab/Gao_NC_CH/blob/main/notebooks/ch_cnv_figures.ipynb).
+## Correction (03/22/2021)
+The confidence level of confidence intervals (as specified in the figure legends) in Figure 1f, Figure 2b-c,  Supplementary Figure 9b, and Supplementary Figure 13 are 90% instead of 95%. No conclusions in the main or supplementary text are affected. Code are added in the notebook for constructing 95% confidence intervals in the above figures.
+
 
 # FACETS-CH algorithm
 Code to implement the FACETS-CH algorithm is provided here under the [facets-ch](https://github.com/papaemmelab/Gao_NC_CH/tree/main/facets-ch) subfolder.
