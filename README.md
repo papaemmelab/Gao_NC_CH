@@ -1,7 +1,8 @@
-[![DOI](https://zenodo.org/badge/306968942.svg)](https://zenodo.org/badge/latestdoi/306968942)
 
 # Interplay between chromosomal alterations and gene mutations in clonal hematopoiesis
 Code and Data for [Gao et al. Nature Communications 2021](https://www.nature.com/articles/s41467-020-20565-7).
+
+[![DOI](https://zenodo.org/badge/306968942.svg)](https://zenodo.org/badge/latestdoi/306968942)
 
 ![image](/onco.png)
 
